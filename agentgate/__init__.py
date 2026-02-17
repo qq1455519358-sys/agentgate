@@ -5,7 +5,7 @@ Your agent passed all unit tests. Then it deleted production data.
 DeepEval tests what your LLM says. AgentGate tests what your agent does.
 """
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 # Core types (canonical source: agentgate.types)
 from agentgate.types import (
