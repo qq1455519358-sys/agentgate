@@ -1,53 +1,56 @@
 # Changelog
 
-## [0.3.0] — 2026-02-18
-
-### Added — 14 new modules, 24 papers
-
-**Core Evaluation**
-- `state_diff` — Outcome verification via environment state comparison (Agent-Diff, 2026)
-- `regression` — Capability vs regression eval suites with graduation (Anthropic, Jan 2026)
-
-**Robustness & Safety**
-- `noise` — User-noise and tool-noise injection (AgentNoiseBench, 2026)
-- `tool_selection` — Adversarial tool selection robustness (ToolCert/CATS, 2025)
-- `silent_failures` — Drift, cycles, missing details, silent tool errors (IBM Research, 2025)
-
-**Agent Intelligence**
-- `memory_eval` — 4-competency memory evaluation: AR/TTL/LRU/CR (MemoryAgentBench, ICLR 2026)
-- `confidence` — Trajectory confidence calibration & escalation (HTC, 2026; AgentAsk, 2025)
-- `multi_agent` — Collaboration quality, coordination efficiency, free-rider detection (MultiAgentBench, ACL 2025)
-
-**Quality & Reliability**
-- `reproducibility` — Variance analysis across repeated runs (Same Prompt Different Outcomes, 2026)
-
-**Previously in 0.2.0, now enhanced:**
-- `adversarial` — OWASP Top 10 coverage
-- `cost` — Token cost & Pareto frontier (Yang et al., 2026; HAL)
-- `kpi_trap` — KPI gaming detection (ODCV-Bench, 2025)
-- `trajectory` — Graph-based credit assignment (WebGraphEval; RewardFlow)
-- `metrics` — Node F1, Edge F1, edit distance (Gabriel et al., 2024)
-
-### Stats
-- **251 tests** (all passing)
-- **22 modules**
-- **80+ public API functions**
-- **24 cited research papers**
-- Zero runtime dependencies
-
-## [0.2.0] — 2026-02-17
+## [0.3.1] - 2026-02-18
 
 ### Added
-- Core scenario/runner/report framework
-- MockAgent for zero-cost testing
-- Adversarial testing (OWASP Agentic Top 10)
-- Trajectory metrics (Node F1, Edge F1)
-- Cost efficiency & Pareto frontier
-- KPI trap detection
-- pytest plugin integration
-- LangGraph adapter
+- **AnthropicAdapter** — Claude tool-use with full trace capture
+- **CrewAIAdapter** — Wrap CrewAI Crew objects
+- **AutoGenAdapter** — Wrap Microsoft AutoGen agents
+- **FunctionAdapter** — Any function returning dict/string/trace → AgentTrace
+- GitHub Pages docs deployment (MkDocs Material)
+- 10 new adapter tests
 
-## [0.1.0] — 2026-02-16
+### Changed
+- Updated HN launch post with real API test results
+- Repo metadata: topics, description, homepage
+
+## [0.3.0] - 2026-02-17
 
 ### Added
-- Initial release with Scenario, TestSuite, AgentAdapter
+- **OpenAIAdapter** + **AsyncOpenAIAdapter** — Full tool-use loop with trace capture
+- Real API tests against DeepSeek V3 (6 tests, all passing)
+- MkDocs Material documentation site
+- Refactored `scenario.py` God Object into `types.py`, `expectations.py`
+- 108 public API exports with full backward compatibility
+
+### Core Modules (22)
+- `scenario.py` — Scenario definition and behavioral assertions
+- `types.py` — AgentTrace, AgentStep, StepKind, MockAgent
+- `expectations.py` — 18 expectation types (tool_call, output, state, etc.)
+- `runner.py` — TestSuite with statistical analysis (pass^k)
+- `adversarial.py` — OWASP Agentic Top 10 scenario generators
+- `confidence.py` — τ-bench pass^k, HTC calibration
+- `metrics.py` — Node F1, Edge F1, tool edit distance
+- `trace.py` — Trace recording and replay
+- `report.py` — Human-readable + JSON reporting
+- `kpi_trap.py` — Outcome-driven constraint violation detection
+- `silent_failures.py` — IBM Research silent failure taxonomy
+- `noise.py` — AgentNoiseBench robustness testing
+- `memory_eval.py` — MemoryAgentBench memory evaluation
+- `tool_selection.py` — ToolCert/CATS adversarial tool injection
+- `multi_agent.py` — MultiAgentBench collaboration metrics
+- `saber.py` — SABER decisive deviation scoring
+- `state_diff.py` — Agent-Diff outcome verification
+- `graph_analysis.py` — WebGraphEval trajectory analysis
+- `cost.py` — Token cost and Pareto frontier
+- `policy.py` — CuP policy adherence
+- `regression.py` — Cross-version regression detection
+- `reproducibility.py` — EvalSuiteManager capability management
+
+### Research
+- 24 papers cited and implemented
+- Full reference list in README
+
+## [0.2.0] - 2026-02-17
+
+Initial development release.
