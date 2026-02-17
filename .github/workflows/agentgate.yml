@@ -1,49 +1,26 @@
-# AgentGate CI — E2E agent behavioral testing in GitHub Actions
-#
-# Copy this file to your project's .github/workflows/ directory.
-# Runs mock-mode tests on every push (zero API cost).
-# Optionally runs real agent tests on PR to main (needs API key).
+# Example workflow — copy to your project to gate deployments on agent behavior.
+# This file is NOT used for AgentGate's own CI (see ci.yml).
 #
 # Usage:
-#   1. Add your scenarios in tests/test_agent.py
-#   2. Use MockAgent for CI (no API keys needed)
-#   3. For real agent tests, add API key as GitHub Secret
+#   1. Copy to your project's .github/workflows/
+#   2. Write scenarios in tests/test_agent.py
+#   3. Use MockAgent for CI (zero API cost)
 
-name: AgentGate E2E
+name: AgentGate E2E (Example)
 
 on:
-  push:
-    branches: [main, dev]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:   # manual trigger only (this is a template)
 
 jobs:
   agent-gate:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.12"
 
-      - name: Install dependencies
-        run: |
-          pip install agentgate
-          pip install pytest
+      - run: pip install agentgate-eval pytest
 
-      - name: Run mock-mode E2E tests
-        run: pytest tests/ -v --tb=short
-
-      # Optional: real agent tests (only on PR to main)
-      # Uncomment and add your API key as a GitHub Secret
-      # - name: Run real agent E2E tests
-      #   if: github.event_name == 'pull_request'
-      #   env:
-      #     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      #   run: pytest tests/test_real_agent.py -v --tb=long
+      - name: Run behavioral tests
+        run: pytest tests/test_agent.py -v --tb=short
