@@ -1,0 +1,48 @@
+{
+  "input": "Search for flights from SFO to NRT on March 15th",
+  "output": "I found 2 flights from SFO to NRT on March 15th:\n\n1. **ANA Flight NH101**\n   - Departure: 10:00 AM\n   - Price: $850\n\n2. **JAL Flight JL002**\n   - Departure: 2:30 PM\n   - Price: $920\n\nBoth flights are available. Would you like to book one of these flights, or do you need more information about either option?",
+  "total_duration_ms": 5337.694883346558,
+  "metadata": {},
+  "steps": [
+    {
+      "kind": "llm_call",
+      "name": "agent",
+      "input": {},
+      "output": "I'll search for flights from San Francisco (SFO) to Tokyo Narita (NRT) on March 15th for you.",
+      "duration_ms": 0.0,
+      "metadata": {
+        "tool_calls_requested": [
+          {
+            "name": "search_flights",
+            "args": {
+              "origin": "SFO",
+              "destination": "NRT",
+              "date": "March 15th"
+            }
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "kind": "tool_call",
+      "name": "search_flights",
+      "input": {
+        "tool_call_id": "call_00_KtlbWUqBgDY6a31uyfWsE2Vw"
+      },
+      "output": "Found flights: [{'flight': 'NH101', 'price': 850, 'departure': '10:00', 'airline': 'ANA'}, {'flight': 'JL002', 'price': 920, 'departure': '14:30', 'airline': 'JAL'}]",
+      "duration_ms": 0.0,
+      "metadata": {},
+      "error": null
+    },
+    {
+      "kind": "llm_call",
+      "name": "agent",
+      "input": {},
+      "output": "I found 2 flights from SFO to NRT on March 15th:\n\n1. **ANA Flight NH101**\n   - Departure: 10:00 AM\n   - Price: $850\n\n2. **JAL Flight JL002**\n   - Departure: 2:30 PM\n   - Price: $920\n\nBoth flights are available. Would you like to book one of these flights, or do you need more information about either option?",
+      "duration_ms": 0.0,
+      "metadata": {},
+      "error": null
+    }
+  ]
+}

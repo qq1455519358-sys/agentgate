@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentgate"
+version = "0.3.0"
+description = "E2E behavioral testing for AI agents — grounded in 24 research papers. Playwright for LLM agents."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [{ name = "AgentGate Contributors" }]
+keywords = [
+    "ai", "agent", "testing", "e2e", "behavioral-testing",
+    "langchain", "langgraph", "quality-gate", "ci-cd",
+    "agent-evaluation", "adversarial", "safety", "benchmark",
+    "multi-agent", "confidence-calibration", "reproducibility",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+
+# Core E2E testing has ZERO heavy dependencies
+dependencies = []
+
+[project.optional-dependencies]
+# Unit-level eval (heavier)
+eval = [
+    "sentence-transformers>=2.2.0",
+    "numpy>=1.24.0",
+]
+# LLM-as-Judge
+llm = ["openai>=1.0.0"]
+# LangGraph integration
+langgraph = [
+    "langgraph>=0.2.0",
+    "langchain-core>=0.3.0",
+]
+# CLI tools
+cli = ["click>=8.0.0"]
+# Everything
+all = [
+    "sentence-transformers>=2.2.0",
+    "numpy>=1.24.0",
+    "openai>=1.0.0",
+    "langgraph>=0.2.0",
+    "langchain-core>=0.3.0",
+    "click>=8.0.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.4.0",
+]
+
+[project.scripts]
+agentgate = "agentgate.cli:main"
+
+[project.entry-points.pytest11]
+agentgate = "agentgate.pytest_plugin"
+
+[project.urls]
+Homepage = "https://github.com/agentgate/agentgate"
+Repository = "https://github.com/agentgate/agentgate"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agentgate"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

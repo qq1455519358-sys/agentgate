@@ -1,0 +1,46 @@
+{
+  "input": "Check the status of booking BK001",
+  "output": "Booking BK001 is currently **confirmed**. Here are the details:\n- **Flight**: NH101\n- **Passenger**: John\n- **Status**: Confirmed\n\nThe booking is active and confirmed. Is there anything else you'd like to know about this booking or would you like to make any changes?",
+  "total_duration_ms": 4186.898708343506,
+  "metadata": {},
+  "steps": [
+    {
+      "kind": "llm_call",
+      "name": "agent",
+      "input": {},
+      "output": "I'll check the status of booking BK001 for you.",
+      "duration_ms": 0.0,
+      "metadata": {
+        "tool_calls_requested": [
+          {
+            "name": "check_booking",
+            "args": {
+              "booking_id": "BK001"
+            }
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "kind": "tool_call",
+      "name": "check_booking",
+      "input": {
+        "tool_call_id": "call_00_I37ieLt84B5bS1TvMsuZg74F"
+      },
+      "output": "Booking BK001: {'status': 'confirmed', 'flight': 'NH101', 'passenger': 'John'}",
+      "duration_ms": 0.0,
+      "metadata": {},
+      "error": null
+    },
+    {
+      "kind": "llm_call",
+      "name": "agent",
+      "input": {},
+      "output": "Booking BK001 is currently **confirmed**. Here are the details:\n- **Flight**: NH101\n- **Passenger**: John\n- **Status**: Confirmed\n\nThe booking is active and confirmed. Is there anything else you'd like to know about this booking or would you like to make any changes?",
+      "duration_ms": 0.0,
+      "metadata": {},
+      "error": null
+    }
+  ]
+}

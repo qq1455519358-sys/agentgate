@@ -1,0 +1,46 @@
+{
+  "input": "What's the baggage policy for ANA?",
+  "output": "ANA's baggage policy allows **2 checked bags per passenger, with each bag weighing up to 23kg (50 lbs)**. This is included in your ticket fare.",
+  "total_duration_ms": 4356.522083282471,
+  "metadata": {},
+  "steps": [
+    {
+      "kind": "llm_call",
+      "name": "agent",
+      "input": {},
+      "output": "I'll check the baggage policy for ANA (All Nippon Airways) for you.",
+      "duration_ms": 0.0,
+      "metadata": {
+        "tool_calls_requested": [
+          {
+            "name": "get_baggage_policy",
+            "args": {
+              "airline": "ANA"
+            }
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "kind": "tool_call",
+      "name": "get_baggage_policy",
+      "input": {
+        "tool_call_id": "call_00_1BvWdRdQr6ywkyvRGmWodbPv"
+      },
+      "output": "2 bags x 23kg each included",
+      "duration_ms": 0.0,
+      "metadata": {},
+      "error": null
+    },
+    {
+      "kind": "llm_call",
+      "name": "agent",
+      "input": {},
+      "output": "ANA's baggage policy allows **2 checked bags per passenger, with each bag weighing up to 23kg (50 lbs)**. This is included in your ticket fare.",
+      "duration_ms": 0.0,
+      "metadata": {},
+      "error": null
+    }
+  ]
+}
