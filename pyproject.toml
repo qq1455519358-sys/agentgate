@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "agentgate"
+name = "agentgate-eval"
 version = "0.3.0"
 description = "E2E behavioral testing for AI agents — grounded in 24 research papers. Playwright for LLM agents."
 readme = "README.md"
@@ -71,8 +71,10 @@ agentgate = "agentgate.cli:main"
 agentgate = "agentgate.pytest_plugin"
 
 [project.urls]
-Homepage = "https://github.com/agentgate/agentgate"
-Repository = "https://github.com/agentgate/agentgate"
+Homepage = "https://qq1455519358-sys.github.io/agentgate"
+Repository = "https://github.com/qq1455519358-sys/agentgate"
+Documentation = "https://qq1455519358-sys.github.io/agentgate"
+Changelog = "https://github.com/qq1455519358-sys/agentgate/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["agentgate"]

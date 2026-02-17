@@ -7,8 +7,10 @@ DeepEval tests what your LLM says. AgentGate tests what your agent does.
 ## Install
 
 ```
-pip install agentgate
+pip install agentgate-eval
 ```
+
+> **Note:** The package name on PyPI is `agentgate-eval` (because `agentgate` was taken), but you still `import agentgate` in your code.
 
 ## 30-Second Example
 
