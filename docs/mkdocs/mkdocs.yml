@@ -1,0 +1,62 @@
+site_name: AgentGate
+site_description: "E2E behavioral testing for AI agents — grounded in 24 research papers"
+site_url: https://qq1455519358-sys.github.io/agentgate
+repo_url: https://github.com/qq1455519358-sys/agentgate
+repo_name: agentgate
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonitions
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/install.md
+    - Quickstart: getting-started/quickstart.md
+    - Core Concepts: getting-started/concepts.md
+  - Guides:
+    - Writing Scenarios: guides/scenarios.md
+    - Adversarial Testing: guides/adversarial.md
+    - Real Agent Testing: guides/real-agents.md
+    - CI/CD Integration: guides/ci-cd.md
+  - API Reference:
+    - Core: api/core.md
+    - Expectations: api/expectations.md
+    - Adapters: api/adapters.md
+    - Metrics: api/metrics.md
+  - Research: research.md
